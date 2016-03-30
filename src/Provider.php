@@ -2,12 +2,16 @@
 
 namespace SocialiteProviders\Medium;
 
-use Laravel\Socialite\Two\AbstractProvider;
 use Laravel\Socialite\Two\ProviderInterface;
-use Laravel\Socialite\Two\User;
+use SocialiteProviders\Manager\OAuth2\AbstractProvider;
+use SocialiteProviders\Manager\OAuth2\User;
 
 class Provider extends AbstractProvider implements ProviderInterface
 {
+    /**
+     * Unique Provider Identifier.
+     */
+    const IDENTIFIER = 'MEDIUM';
 
     protected $scopes = ['basicProfile'];
 
@@ -52,7 +56,7 @@ class Provider extends AbstractProvider implements ProviderInterface
         return (new User())->setRaw($user)->map([
             'id' => $user['data']['id'],
             'name' => $user['data']['name'],
-            
+
         ]);
     }
 
