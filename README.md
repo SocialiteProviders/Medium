@@ -45,3 +45,5 @@ return Socialite::driver('medium')->redirect();
 
 - ``id``
 - ``name``
+- ``nickname``
+- ``avatar``
